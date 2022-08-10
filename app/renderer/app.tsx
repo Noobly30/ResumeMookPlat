@@ -1,20 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Title from './title/index';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Router from './router';
+import store from './store';
+import { Provider } from 'react-redux';
 
 function App() {
     return (
-        <Router>
-            <Switch>
-                <Route path="/">
-                    <div>可视化简历平台</div>
-                    <div>Electron + React</div>
-                    <Title text='a'/>
-                </Route>
-            </Switch>
-        </Router>
-    )
+        <Provider store={store}>
+            <Router />
+        </Provider>
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
